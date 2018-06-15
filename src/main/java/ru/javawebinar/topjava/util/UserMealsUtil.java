@@ -36,13 +36,24 @@ public class UserMealsUtil {
             }
         }
 */
+        mealList.stream().filter((userMeal)->
+                (
+                    (userMeal.getDateTime().toLocalTime().isAfter(startTime)) &&
+                    userMeal.getDateTime().toLocalTime().isBefore(endTime)
+                )
+        ).forEachOrdered((userMeal)->
+                {
+                    userMealWithExceeds.add(new UserMealWithExceed(userMeal.getDateTime(), userMeal.getDescription(), userMeal.getCalories(),
+                            summColoriesInDay.get(userMeal.getDateTime().toLocalDate())>caloriesPerDay));
+                }
+        );
 
-        mealList.forEach((userMeal)->{
-            if((userMeal.getDateTime().toLocalTime().isAfter(startTime)) && userMeal.getDateTime().toLocalTime().isBefore(endTime)){
-                userMealWithExceeds.add(new UserMealWithExceed(userMeal.getDateTime(), userMeal.getDescription(), userMeal.getCalories(),
-                        summColoriesInDay.get(userMeal.getDateTime().toLocalDate())>caloriesPerDay));
-            }
-        });
+//        mealList.forEach((userMeal)->{
+//            if((userMeal.getDateTime().toLocalTime().isAfter(startTime)) && userMeal.getDateTime().toLocalTime().isBefore(endTime)){
+//                userMealWithExceeds.add(new UserMealWithExceed(userMeal.getDateTime(), userMeal.getDescription(), userMeal.getCalories(),
+//                        summColoriesInDay.get(userMeal.getDateTime().toLocalDate())>caloriesPerDay));
+//            }
+//        });
 
 
         return userMealWithExceeds;
