@@ -3,11 +3,11 @@ package ru.javawebinar.topjava.util;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.model.UserMealWithExceed;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class UserMealsUtil {
     public static void main(String[] args) {
@@ -25,7 +25,40 @@ public class UserMealsUtil {
     }
 
     public static List<UserMealWithExceed>  getFilteredWithExceeded(List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
-        System.out.print("TODO return filtered list with correctly exceeded field");
-        return null;
+        List<UserMealWithExceed> userMealWithExceeds=new ArrayList<>();
+
+        Map<LocalDate,Integer> summColoriesInDay=caloriesInDay(mealList);
+/*
+        for (UserMeal userMeal:mealList){
+            if((userMeal.getDateTime().toLocalTime().isAfter(startTime)) && userMeal.getDateTime().toLocalTime().isBefore(endTime)){
+                userMealWithExceeds.add(new UserMealWithExceed(userMeal.getDateTime(), userMeal.getDescription(), userMeal.getCalories(),
+                        summColoriesInDay.get(userMeal.getDateTime().toLocalDate())>caloriesPerDay));
+            }
+        }
+*/
+
+        mealList.forEach((userMeal)->{
+            if((userMeal.getDateTime().toLocalTime().isAfter(startTime)) && userMeal.getDateTime().toLocalTime().isBefore(endTime)){
+                userMealWithExceeds.add(new UserMealWithExceed(userMeal.getDateTime(), userMeal.getDescription(), userMeal.getCalories(),
+                        summColoriesInDay.get(userMeal.getDateTime().toLocalDate())>caloriesPerDay));
+            }
+        });
+
+
+        return userMealWithExceeds;
+    }
+
+    private static Map<LocalDate,Integer> caloriesInDay(List<UserMeal> mealList){
+        Map<LocalDate,Integer> summColoriesInDay=new HashMap<>();
+        for (UserMeal userMeal:mealList){
+            LocalDate localDate=userMeal.getDateTime().toLocalDate();
+            if(summColoriesInDay.get(localDate)==null){
+                summColoriesInDay.put(localDate,userMeal.getCalories());
+            }else{
+                summColoriesInDay.put(localDate,summColoriesInDay.get(localDate)+userMeal.getCalories());
+            }
+        }
+
+        return summColoriesInDay;
     }
 }
