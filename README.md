@@ -1,5 +1,8 @@
 Java Enterprise Online Project 
 ===============================
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8fbe08c7963145d9b1c5b4b378dd1260)](https://app.codacy.com/app/SmershRoot/topjava?utm_source=github.com&utm_medium=referral&utm_content=SmershRoot/topjava&utm_campaign=Badge_Grade_Settings)
+
 Разработка полнофункционального Spring/JPA Enterprise приложения c авторизацией и правами доступа на основе ролей с использованием наиболее популярных инструментов и технологий Java: Maven, Spring MVC, Security, JPA(Hibernate), REST(Jackson), Bootstrap (css,js), datatables, jQuery + plugins, Java 8 Stream and Time API и хранением в базах данных Postgresql и HSQLDB.
 
 ![topjava_structure](https://user-images.githubusercontent.com/13649199/27433714-8294e6fe-575e-11e7-9c41-7f6e16c5ebe5.jpg)
@@ -17,7 +20,7 @@ Java Enterprise Online Project
 ### <a href="https://github.com/JavaOPs/topjava/wiki">Требования к участникам, Wiki</a>
 ### <a href="cv.md">Составление резюме, подготовка к интервью, поиск работы</a>
 
-Вводное занятие (обязательно смотреть все видео)
+Вводное занятие
 ===============
 ## ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/file/d/0B9Ye2auQ_NsFY1ZDNXRCd1NCTG8">Осваиваем Java Enterprise. Трудоустройство. Ответы на вопросы.</a>
 - <a href="https://goo.gl/XNVOj4">Слайды презентации</a>
@@ -105,7 +108,7 @@ Java Enterprise Online Project
 ```
 Сделать реализацию со сложностью O(N):
 - циклом за 1 проход по List<UserMeal>. Обратите внимание на п.13 замечаний
-- через Stream API за 1 проход по полному списку Stream<UserMeal>
+- через Stream API за 1 проход по Stream<UserMeal>
 ```
 #### Замечания по использованию Stream API:
 - Когда встречаешь что-то непривычное, приходится перестраивать мозги. Например, переход с процедурного на ООП программирование дается непросто. Те, кто не знает шаблонов (и не хотят учить) также их встречают плохо. Хорошая новость в том, что если это принять и начать использовать, то начинаешь получать от этого удовольствие. И тут главное не впасть в другую крайность:
@@ -142,7 +145,6 @@ Java Enterprise Online Project
 Все остальное - опционально.
 
 #### HTML, JavaScript, CSS 
-- [Basic HTML and HTML5](https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5/say-hello-to-html-elements/)
 - [Справочник по WEB](https://developer.mozilla.org/ru/)
 - [Видео по WEB технологиям](https://www.youtube.com/user/WebMagistersRu/playlists)
 - [Изучение JavaScript в одном видео уроке за час](https://www.youtube.com/watch?v=QBWWplFkdzw)
