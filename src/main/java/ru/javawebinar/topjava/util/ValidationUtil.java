@@ -10,9 +10,6 @@ public class ValidationUtil {
         return checkNotFound(object, "id=" + id);
     }
 
-    private ValidationUtil() {
-    }
-
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);
     }
